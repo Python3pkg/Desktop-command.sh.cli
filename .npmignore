@@ -1,0 +1,20 @@
+# ~/.npmignore NOT SUPPORTED :(
+
+.DS_Store
+/build
+/dist
+/description
+/Examples
+*.egg-info
+*.command
+*.md
+*.py
+*.pyc
+*.txt
+*.yml
+MANIFEST
+MANIFEST.in
+README.md
+README.rst
+/Tests
+

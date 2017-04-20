@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+{ set +x; } 2>/dev/null
+
+( set -x; Desktop show ) || exit
+( set -x; sleep 2 ) || exit
+( set -x; Desktop hide )

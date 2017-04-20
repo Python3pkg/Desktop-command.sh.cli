@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+{ set +x; } 2>/dev/null
+
+echo "usage: desktop COMMAND [options]
+
+Available commands:
+	hide		hide Desktop
+	show		show Desktop
+	toggle		hide/show Desktop
+	wallpaper	get/set Desktop wallpaper"
+

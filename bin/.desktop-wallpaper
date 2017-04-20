@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+{ set +x; } 2>/dev/null
+
+usage="usage: ${BASH_SOURCE[0]##*/} [path]"
+
+[[ $1 == "--help" ]] && {
+	echo "$usage"
+	[[ $1 == "--help" ]]; exit # exit 0 if --help
+}
+
+# default wallpapers:
+# /Library/Desktop Pictures/
+
+[[ $# == 0 ]] && {
+	applescript="
+tell application \"System Events\"
+	tell current desktop to get picture
+end tell"
+	osascript -e "$applescript"
+	exit
+}
+
+applescript="
+tell application \"System Events\"
+	tell current desktop
+		set picture to \"$1\"
+	end tell
+end tell"
+( set -x; osascript -e "$applescript" )

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+{ set +x; } 2>/dev/null
+
+usage="usage: ${BASH_SOURCE[0]##*/}"
+
+[[ $1 == "--help" ]] && {
+	echo "$usage"
+	[[ $1 == "--help" ]]; exit # exit 0 if --help
+}
+
+app="$(frontmost-app)" || exit
+
+applescript='tell application "System Events"
+	key code 48 using {command down} -- cmd+tab
+end'
+( set -x; osascript -e "$applescript" ) || exit
+( set -x; /usr/bin/open -a "$app" ) || exit
